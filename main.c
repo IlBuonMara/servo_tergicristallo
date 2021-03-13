@@ -1,4 +1,4 @@
-//se si preme il pulsante s8 della scheda tm1638 il servo va prima a 0°, poi a 180° e alla fine torna a 0°
+//se si preme il pulsante s8 della scheda tm1638 il servo va prima a 0Â°, poi a 180Â° e alla fine torna a 0Â°
 //intanto nel display della tm1638 viene visualizzato "TEST0180"
 
 
@@ -30,25 +30,30 @@ void main(void)
         }
         switch(t){
             case 1: 
+                MostraStringa("LENTO");
                 for(q=22;q<=70;q=q+30){
                 EPWM1_LoadDutyValue(q);
                 EPWM2_LoadDutyValue(q);
-                __delay_ms(1000);}
+                __delay_ms(4000);}
                 break;
             case 2: 
+                MostraStringa("MEDIO");
+                for(q=22;q<=70;q=q+30){
+                EPWM1_LoadDutyValue(q);
+                EPWM2_LoadDutyValue(q);
+                __delay_ms(2000);}
+                break;
+            case 4: 
+                MostraStringa("VELOCE");
                 for(q=22;q<=70;q=q+30){
                 EPWM1_LoadDutyValue(q);
                 EPWM2_LoadDutyValue(q);
                 __delay_ms(500);}
                 break;
-            case 4: 
-                for(q=22;q<=70;q=q+30){
-                EPWM1_LoadDutyValue(q);
-                EPWM2_LoadDutyValue(q);
-                __delay_ms(200);}
-                break;
-                }
-                
-    
+            case 8:
+                MostraStringa("OFF");
+                EPWM1_LoadDutyValue(22);
+                EPWM2_LoadDutyValue(22);
+                }    
     }
 }
