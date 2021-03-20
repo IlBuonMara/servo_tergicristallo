@@ -1,7 +1,3 @@
-//se si preme il pulsante s8 della scheda tm1638 il servo va prima a 0°, poi a 180° e alla fine torna a 0°
-//intanto nel display della tm1638 viene visualizzato "TEST0180"
-
-
 #include "mcc_generated_files/mcc.h"
 #include <stdlib.h>
 #include "TM1638picB.h"
